@@ -16,8 +16,6 @@
   - Added associations (has-a, uses, composed of)
   - Annotated with helpful non-technical descriptions for documentation clarity
 
-# 📦 Changelog
-
 ## [May 15, 2025]
 
 ### ✨ Added
