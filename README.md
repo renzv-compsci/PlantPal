@@ -1,2 +1,7 @@
-# PotsKo
-PotsKo is a Java Swing desktop app that helps Plantitos and Plantitas care for their plants with ease. It features a local plant guide, smart care reminders, and an AI-like assistant for watering, sunlight, and weather tips—designed especially for Filipino plant lovers.
+# PotsKo 🌱
+A personal plant care assistant app using Java Swing.
+Currently in Week 1: Planning & Research Phase.
+
+## Goals:
+- Help users track plant care (watering, sunlight, etc.)
+- Smart reminders and personalized guides
