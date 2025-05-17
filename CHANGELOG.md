@@ -77,8 +77,8 @@
   - Planned interaction for adding new entries and editing past logs
 
 - Brainstormed names for AI features:
-  - Weather Assistant ideas: `TagPi`, `KlimAI`, `PanahonBot`
-  - Plant AI Assistant ideas: `BUDdee`, `HalAIman`, `TalahAI`, `YuiBot`
+  - Final Weather Assistant name: `PanahAI`
+  - Final Plant AI Assistant name: `SibolAI`
 
 ### ✅ Changed
 - Confirmed that **Growth Progress** can be initialized from user input or default "Day 0"
@@ -90,4 +90,3 @@
 - Reassured scope of features (growth tracker, dashboard sorting) are doable within the 5-week timeline
 - Clarified use of Java Swing’s **JProgressBar** for visual growth tracker
 - Decided to include only necessary, meaningful features to avoid burnout
-
