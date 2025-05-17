@@ -50,7 +50,7 @@
 ### ✨ Added
 - Finalized **Dashboard UI Mockup** in Figma:
   - Included *Recently Added Plants* and *Recently Watered* sections for dynamic display
-  - Added sorting filter under **Category**, with options like: `Succulent`, `Indoor`, `Flowering`, `Herbs`, and `Ornamental`
+  - Added sorting filter under **Category**
   - Introduced concept of **Growth Progress Bar** per plant for visual feedback on care
 
 - Designed initial layout for **Weather Assistant Widget** on the dashboard:
