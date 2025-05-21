@@ -44,3 +44,49 @@
 - Explained where to store the JSON data file (in `/resources` or `/data` folder)
 - Strategized GitHub commits:
   - Agreed to commit project structure early to enable version tracking even before coding starts
+
+## [May 17, 2025]
+
+### ✨ Added
+- Finalized **Dashboard UI Mockup** in Figma:
+  - Included *Recently Added Plants* and *Recently Watered* sections for dynamic display
+  - Added sorting filter under **Category**
+  - Introduced concept of **Growth Progress Bar** per plant for visual feedback on care
+
+- Designed initial layout for **Weather Assistant Widget** on the dashboard:
+  - Placeholder space for location-based temperature and plant care advisory
+  - Allocated design space for assistant name and personality preview
+
+### ✅ Changed
+- Improved organization of Figma layers and frame naming conventions
+- Tweaked spacing and icon placement for better alignment and consistency
+
+### 🧠 Discussed
+- Explored feasibility of dynamic homepage features:
+  - Confirmed recent plant additions and watering updates are **doable** in Java Swing with database tracking
+- Reviewed idea of using icons from **Flaticon**:
+  - Confirmed that attribution is required even in academic projects
+  - Chose to add attributions inside `README.md` for maintainability
+
+## [May 18, 2025]
+
+### ✨ Added
+- Completed **Journal Page** UI in Figma:
+  - Final title selected: **"Yui’s Garden Journal"**
+  - Entry card system with timestamp, note field, and image support
+  - Planned interaction for adding new entries and editing past logs
+
+- Brainstormed names for AI features:
+  - Final Weather Assistant name: `PanahAI`
+  - Final Plant AI Assistant name: `SibolAI`
+
+### ✅ Changed
+- Confirmed that **Growth Progress** can be initialized from user input or default "Day 0"
+- Updated README attribution strategy for icons:
+  - Will credit individual creators with links
+  - Attribution to be added before project submission or publication
+
+### 🧠 Discussed
+- Reassured scope of features (growth tracker, dashboard sorting) are doable within the 5-week timeline
+- Clarified use of Java Swing’s **JProgressBar** for visual growth tracker
+- Decided to include only necessary, meaningful features to avoid burnout
