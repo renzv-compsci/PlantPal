@@ -1,0 +1,75 @@
+[
+    {
+       "id": 1,
+       "name": "Aloe Vera",
+       "tagalogName": "Sabila",
+       "scientificName": "Aloe barbadenis miller",
+       "category": "Succulent",
+       "wateringFrequency": "Once a week",
+       "sunlight": "Indirect sunlight",
+       "plantType": "Both",
+       "growthStages": [
+            "Germination", 
+            "Seedling", 
+            "Vegetative Growth", 
+            "Flowering", 
+            "Reproduction"
+        ],
+       "image": "placeholder"
+    },
+
+    {
+        "id": 2,
+        "name": "Snake Plant",
+        "tagalogName": "Espada",
+        "scientificName": "Dracaena trifasciata",
+        "category": "Succulent",
+        "wateringFrequency": "Once every two weeks",
+        "sunlight": "Indirect sunlight",
+        "plantType": "Both",
+        "growthStages": [
+            "Gernination", 
+            "Seedling",
+            "Vegetative Growth",
+            "Mature"
+        ],
+        "image": "placeholder"
+    },
+
+    {
+        "id": 3,
+        "name": "Monstera",
+        "tagalogName": "Tibatib",
+        "scientificName": "Monstera deliciosa",
+        "category": "Tropical",
+        "wateringFrequency": "Once every one to two weeks",
+        "sunlight": "Bright, indirect light",
+        "plantType": "Both",
+        "growthStages": [
+            "Germination",
+            "Seedling", 
+            "Juvenile Plant", 
+            "Mature",
+            "Fenestration"
+        ],
+        "image": "placeholder"
+    },
+
+    {
+        "id": 4,
+        "name": "Peace Lilly",
+        "tagalogName": "Lilang Kapayapaan",
+        "scientificName": "Spathiphyllum wallisii",
+        "category": "Flowering plants",
+        "wateringFrequency": "Once a week",
+        "sunlight": "Bright, indirect light",
+        "plantType": "Indoor",
+        "growthStages": [
+            "Germination",
+            "Seedling",
+            "Vegetative Growth",
+            "Flowering"
+        ],
+        "image": "placeholder"
+    }
+]
