@@ -1,0 +1,67 @@
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    email TEXT UNIQUE,
+    password TEXT NOT NULL,
+    date_created DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE plants (
+    plant_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    tagalog_name TEXT,
+    scientific_name TEXT,
+    category TEXT,
+    watering_freq TEXT, 
+    sunlight TEXT,
+    plant_type TEXT
+);
+
+CREATE TABLE growthstages (
+    stage_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    plant_id INTEGER,
+    stage_name TEXT NOT NULL,
+    stage_order INTEGER,
+    FOREIGN KEY (plant_id) REFERENCES plants(plant_id)
+);
+
+CREATE TABLE userplants (
+    user_plant_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    plant_id INTEGER,
+    nickname TEXT,
+    date_added DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_watered DATETIME,
+    current_stage TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (plant_id) REFERENCES plants(plant_id)
+);
+
+CREATE TABLE journalentries (
+    entry_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    user_plant_id INTEGER,
+    title TEXT,
+    content TEXT,
+    date_written DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (user_plant_id) REFERENCES userplants(user_plant_id)
+);
+
+CREATE TABLE reminders (
+    reminder_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_plant_id INTEGER,
+    reminder_type TEXT,
+    next_date DATETIME,
+    frequency TEXT,
+    FOREIGN KEY (user_plant_id) REFERENCES userplants(user_plant_id)
+);
+
+CREATE TABLE weatherlogs (
+    log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    weather_summary TEXT,
+    advice_given TEXT,
+    date_logged DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
