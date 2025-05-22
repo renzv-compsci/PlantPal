@@ -1,0 +1,131 @@
+<mxfile host="65bd71144e">
+    <diagram id="pv64dYJemKifVHYp-Ek-" name="Page-1">
+        <mxGraphModel dx="262" dy="291" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;PotsKo: &lt;span style=&quot;font-weight: 400;&quot;&gt;Design Pattern (MVC)&amp;nbsp;&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;font-weight: normal;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="30" width="260" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="User" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="150" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="endArrow=open;endFill=1;endSize=12;html=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="399.64" y="180" as="sourcePoint"/>
+                        <mxPoint x="400" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="View UI: Dashboard Interface&amp;nbsp;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="305" y="240" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Displays userPlants" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="247" width="120" height="33" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Allows interaction (e.g , &quot;Water Plant&quot; )" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="270" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="endArrow=open;endFill=1;endSize=12;html=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="399.57" y="280" as="sourcePoint"/>
+                        <mxPoint x="399.93" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9" target="22">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="630" y="350.3684210526317" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="Controller: PotsKoController" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="305" y="330" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=open;endFill=1;endSize=12;html=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="305" y="370" as="sourcePoint"/>
+                        <mxPoint x="305.3" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="Handles user actions (e.g , buttom clicks, etc.)&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="370" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Direct requests to each models&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="400" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Model: UserModel" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="460" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="endArrow=open;endFill=1;endSize=12;html=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="494.13" y="370" as="sourcePoint"/>
+                        <mxPoint x="494.43" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="Model: PlantModel" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="460" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Model: SibolAI" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="330" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=open;endFill=1;endSize=12;html=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="305" y="500" as="sourcePoint"/>
+                        <mxPoint x="305.3" y="590" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="Manages user login / sign up" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="510" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Database / SQLite" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="590" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="endArrow=open;endFill=1;endSize=12;html=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="494.16999999999996" y="500" as="sourcePoint"/>
+                        <mxPoint x="494.47" y="590" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="data.json" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="590" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Fetches plant date from JSON" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="510" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Updates care info based on each plants&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="530" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="Analyzes preferences of user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="370" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Responds with plant care advice" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="400" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="35" target="34">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" style="edgeStyle=none;html=1;" edge="1" parent="1" source="35">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="920" y="455" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="Connects with" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="440" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="764.62" y="439.99923076923073" as="targetPoint"/>
+                        <mxPoint x="764.62" y="369.23" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="43" value="Model: PanahAI" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="530" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" style="edgeStyle=none;html=1;entryX=0.346;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="35" target="43">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="ReminderSystem" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="930" y="435" width="130" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
