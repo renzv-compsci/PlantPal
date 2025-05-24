@@ -89,4 +89,45 @@
 ### 🧠 Discussed
 - Reassured scope of features (growth tracker, dashboard sorting) are doable within the 5-week timeline
 - Clarified use of Java Swing’s **JProgressBar** for visual growth tracker
-- Decided to include only necessary, meaningful features to avoid burnout
+
+## 📦 Weekly Changelog (May 19 – May 24, 2025)
+
+### ✨ Added
+
+- ✅ **Installed Chocolatey & SQLite for local development**
+  - Chocolatey installed via PowerShell script
+  - SQLite v3.49.2 installed using `choco install sqlite`
+  - Verified installation using `sqlite3 --version`
+
+- ✅ **Set up local database environment**
+  - Confirmed SQLite will be the local backend database
+  - Database file (`potsko.db`) will be created inside `src/main/java/controller/db/`
+  - Established clear separation:
+    - `plants.json` → Static read-only plant data
+    - SQLite DB → Dynamic data (user, reminders, journal)
+
+- ✅ **Updated project structure**
+  - Added `db/` folder inside `controller/` to handle SQLite interactions
+  - Finalized MVC interactions
+
+- ✅ **Database planning**
+  - Tables to be implemented:
+    - `users` (for login/signup)
+    - `reminders`
+    - `journal`
+    - `user_plants`
+  - Discussed login and signup handling logic via SQLite (`users` table)
+
+### ✅ Changed
+
+- Reorganized folder structure to better separate static (`json`) vs dynamic (`db`) data
+- Confirmed SQLite will be accessed directly from Java through JDBC
+- Adjusted workflow to work **within the project folder**, not outside
+
+### 🧠 Discussed
+
+- SQLite is sufficient as a backend for local desktop applications like PotsKo
+- No external backend (e.g. Node, Django) is necessary unless cloud sync is introduced
+- Login/signup flows will be written in Java, with input validation and encrypted password storage
+- Development will continue inside VS Code, integrated into the existing Java project structure
+
