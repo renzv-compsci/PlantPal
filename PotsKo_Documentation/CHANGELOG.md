@@ -131,3 +131,30 @@
 - Login/signup flows will be written in Java, with input validation and encrypted password storage
 - Development will continue inside VS Code, integrated into the existing Java project structure
 
+## 📦 Weekly Changelog (May 26 – May 31, 2025)
+
+### ✨ Added
+
+- Integrated CardLayout for page navigation in `MainFrame.java`, enabling seamless switching between the landing, login, and signup panels.
+- Created `LoginPanel.java` and `SignupPanel.java` in the `view/` directory.
+    - Designed forms with username and password fields.
+    - Added navigation buttons to switch between panels.
+    - Set up button actions and layout (database logic in progress as of June 1).
+- Outlined plans for database authentication via a `UserDAO` (to be placed in `db/` or `model/`).
+    - Discussed using JDBC for SQLite integration.
+    - Noted intent to use hashed passwords in production.
+
+### ✅ Enhanced Project Structure
+
+- Consolidated navigation logic within `MainFrame.java` for maintainability.
+- Passed `MainFrame` references to panels, enabling UI-driven page switching.
+- Separated UI logic (in panels) from future database logic (in DAO classes).
+- Provided sample templates and code examples for panel and navigation setup.
+
+### 🧠 Discussed
+
+- Best practices for Java Swing navigation: using CardLayout in a central frame.
+- Decoupling UI layout from navigation logic by referencing `MainFrame` in panels.
+- Responsibilities and structure of `LandingPage`, `LoginPanel`, and `SignupPanel`.
+- Planned integration of authentication and registration with the database.
+- Noted that login and signup/database connection work is ongoing as of June 1.
