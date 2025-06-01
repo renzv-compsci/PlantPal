@@ -12,6 +12,7 @@ import java.io.InputStream;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
 
 public class LandingPage extends JFrame {
     
-    public LandingPage() {
+    public LandingPage(MainFrame mainFrame) {
 
         // Creating the frame of PotsKo
         JFrame frame = new JFrame("PotsKo: A Smart Way to go Green");
@@ -42,6 +43,17 @@ public class LandingPage extends JFrame {
         JPanel textPanel = new JPanel();
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
         textPanel.setBounds (250, 220, 2000, 2000);
+
+        // Creating JButtons for the login and signup functions 
+        JButton login = new JButton("Log In");
+        JButton signup = new JButton("Sign Up");
+
+        // Event listeners 
+        login.addActionListener(e -> mainFrame.showLogin());
+        signup.addActionListener(e -> mainFrame.showSignup());
+        
+        frame.add(login);
+        frame.add(signup);
 
         // Uses try catch method for debugging purposes (this loads text)
         try (InputStream fontStream = LandingPage.class.getResourceAsStream("/font/AnnapurnaSIL-Bold.ttf")) {
@@ -81,8 +93,8 @@ public class LandingPage extends JFrame {
             System.err.println("Error loading font 2: " + e.getMessage());
         }  
 
-        try {
         // Image overlapping layout using layeredPane
+        try {
         ImageIcon leftPlant = new ImageIcon(getClass().getResource("/images/appImg/plant3.png"));
         Image leftPlantScl = leftPlant.getImage().getScaledInstance(695, 695, Image.SCALE_SMOOTH);
         JLabel leftPlantLbl = new JLabel(new ImageIcon(leftPlantScl));
@@ -106,6 +118,6 @@ public class LandingPage extends JFrame {
         
     }
     public static void main(String[] args) {
-        new LandingPage();
+        new LandingPage(null);
     }
 }
