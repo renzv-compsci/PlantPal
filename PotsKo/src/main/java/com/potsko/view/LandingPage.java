@@ -10,13 +10,16 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class LandingPage extends JFrame {
     
@@ -41,19 +44,9 @@ public class LandingPage extends JFrame {
 
         // JPanel for the positions of dynamic text 
         JPanel textPanel = new JPanel();
+        textPanel.setOpaque(false);
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
         textPanel.setBounds (250, 220, 2000, 2000);
-
-        // Creating JButtons for the login and signup functions 
-        JButton login = new JButton("Log In");
-        JButton signup = new JButton("Sign Up");
-
-        // Event listeners 
-        login.addActionListener(e -> mainFrame.showLogin());
-        signup.addActionListener(e -> mainFrame.showSignup());
-        
-        frame.add(login);
-        frame.add(signup);
 
         // Uses try catch method for debugging purposes (this loads text)
         try (InputStream fontStream = LandingPage.class.getResourceAsStream("/font/AnnapurnaSIL-Bold.ttf")) {
@@ -91,7 +84,57 @@ public class LandingPage extends JFrame {
         
         } catch (FontFormatException | IOException e) {
             System.err.println("Error loading font 2: " + e.getMessage());
-        }  
+        } 
+        
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setOpaque(false);
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        buttonPanel.setBounds (260, 610, 300, 37);
+
+        // Creating JButtons for the login and signup functions 
+        JButton signup = new JButton("Sign Up");
+        JButton login = new JButton("Log In");
+
+        login.setPreferredSize(new Dimension(109, 37));
+        login.setMaximumSize(new Dimension(109, 37));
+        signup.setPreferredSize(new Dimension(111, 37));
+        signup.setMaximumSize(new Dimension(111, 37));
+
+        // Uses try catch method for debugging purposes (this loads text) and loads JButtons
+        try (InputStream fontStream = LandingPage.class.getResourceAsStream("/font/Poppins-Regular.ttf")) {
+            if (fontStream == null) { // checks if the font is in the right path
+               
+                System.err.println("Font not found");
+            } else {      
+
+                Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(20f);
+                // Designing button inside try and catch 
+                login.setFont(customFont);
+                signup.setFont(customFont);
+            }
+
+        } catch (FontFormatException | IOException e) {
+            System.err.println("Error loading font poppins: " + e.getMessage());
+        }
+
+        // Border Designs
+        Color greenBorder = new Color(34, 82, 20);
+        LineBorder defaultBorder = new LineBorder(greenBorder, 2, false);
+
+        greenButtonStyle(login, greenBorder, defaultBorder);
+        greenButtonStyle(signup, greenBorder, defaultBorder);
+  
+
+        // Add listeners, and buttons
+        login.addActionListener(e -> mainFrame.showLogin());
+        signup.addActionListener(e -> mainFrame.showSignup());
+
+        buttonHoverEffect(login, greenBorder, defaultBorder);
+        buttonHoverEffect(signup, greenBorder, defaultBorder);
+
+        buttonPanel.add(login);
+        buttonPanel.add(Box.createHorizontalStrut(30));
+        buttonPanel.add(signup);
 
         // Image overlapping layout using layeredPane
         try {
@@ -111,11 +154,48 @@ public class LandingPage extends JFrame {
         }
 
         layeredPane.add(textPanel, JLayeredPane.PALETTE_LAYER);
+        layeredPane.add(buttonPanel, JLayeredPane.PALETTE_LAYER);
 
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        
+  
+    }
+
+    // Helper method for base button style
+    private static void greenButtonStyle(JButton button, Color greenBorder, LineBorder defaultBorder) {
+        button.setContentAreaFilled(false);
+        button.setOpaque(true);
+        button.setForeground(greenBorder);
+        button.setFocusPainted(false);
+        button.setBorder(defaultBorder);
+    }
+
+    // Fully robust button hover/press effect (fix for all your issues)
+    private static void buttonHoverEffect(JButton button, Color greenBorder, LineBorder defaultBorder) {
+        Color lighterGreen = new Color(148, 173, 146);
+        button.setBorder(defaultBorder);
+
+        button.getModel().addChangeListener(e -> {
+            ButtonModel model = button.getModel();
+
+            if (model.isPressed() && model.isArmed()) {
+                // Pressed state: lighter green background, white text
+                button.setContentAreaFilled(false);
+                button.setBackground(lighterGreen);
+                button.setForeground(Color.WHITE);
+            } else if (model.isRollover()) {
+                // Hover state: dark green background, white text
+                button.setContentAreaFilled(false);
+                button.setBackground(greenBorder);
+                button.setForeground(Color.WHITE);
+            } else {
+                // Normal state: transparent background, green text
+                button.setContentAreaFilled(false);
+                button.setBackground(null);
+                button.setForeground(greenBorder);
+            }
+        });
     }
     public static void main(String[] args) {
         new LandingPage(null);
