@@ -1,5 +1,6 @@
 package com.potsko.view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -15,32 +16,23 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-public class LandingPage extends JFrame {
+public class LandingPage extends JPanel {
     
     public LandingPage(MainFrame mainFrame) {
-
-        // Creating the frame of PotsKo
-        JFrame frame = new JFrame("PotsKo: A Smart Way to go Green");
-        frame.setSize(1200, 780);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.getContentPane().setBackground(Color.WHITE);
-
-        // Adding PotsKo Icon 
-        ImageIcon icon = new ImageIcon("PotsKo\\src\\main\\resources\\images\\UIicons\\PotsKo_Logo.png");
-        Image scaledImage = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
-        frame.setIconImage(scaledImage);
+        
+        //Ensures that all of the desired positions of each elements stay intact 
+        setLayout(new BorderLayout());
 
         // Setting up JLayered Pane for image design positioning (Allows image overlapping)
         JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setPreferredSize(new Dimension(2000,2000));
-        frame.setContentPane(layeredPane);
+        layeredPane.setPreferredSize(new Dimension(1200,780));
+        layeredPane.setOpaque(false);
+        add(layeredPane, BorderLayout.CENTER);
 
         // JPanel for the positions of dynamic text 
         JPanel textPanel = new JPanel();
@@ -86,6 +78,7 @@ public class LandingPage extends JFrame {
             System.err.println("Error loading font 2: " + e.getMessage());
         } 
         
+        // Button Panel 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setOpaque(false);
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
@@ -125,10 +118,18 @@ public class LandingPage extends JFrame {
         greenButtonStyle(signup, greenBorder, defaultBorder);
   
 
-        // Add listeners, and buttons
-        login.addActionListener(e -> mainFrame.showLogin());
-        signup.addActionListener(e -> mainFrame.showSignup());
+        // Listeners with debuggers
+        login.addActionListener(e -> {
+            System.out.println("Log In button clicked");
+            mainFrame.showLogin();
+        });
 
+        signup.addActionListener(e -> {
+            System.out.println("Signup button clicked");
+            mainFrame.showSignup();
+        });
+        
+        // Adding buttons 
         buttonHoverEffect(login, greenBorder, defaultBorder);
         buttonHoverEffect(signup, greenBorder, defaultBorder);
 
@@ -156,10 +157,6 @@ public class LandingPage extends JFrame {
         layeredPane.add(textPanel, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(buttonPanel, JLayeredPane.PALETTE_LAYER);
 
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-  
     }
 
     // Helper method for base button style
@@ -196,8 +193,5 @@ public class LandingPage extends JFrame {
                 button.setForeground(greenBorder);
             }
         });
-    }
-    public static void main(String[] args) {
-        new LandingPage(null);
     }
 }
