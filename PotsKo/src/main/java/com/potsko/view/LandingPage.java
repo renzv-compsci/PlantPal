@@ -13,13 +13,14 @@ import java.io.InputStream;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
+
+import com.potsko.utils.ButtonUtils;
+import com.potsko.utils.FontUtils;
 
 public class LandingPage extends JPanel {
     
@@ -93,30 +94,12 @@ public class LandingPage extends JPanel {
         signup.setPreferredSize(new Dimension(111, 37));
         signup.setMaximumSize(new Dimension(111, 37));
 
-        // Uses try catch method for debugging purposes (this loads text) and loads JButtons
-        try (InputStream fontStream = LandingPage.class.getResourceAsStream("/font/Poppins-Regular.ttf")) {
-            if (fontStream == null) { // checks if the font is in the right path
-               
-                System.err.println("Font not found");
-            } else {      
+        // Used the font utils to get the button font 
+        Font btnFont = FontUtils.getFont("Poppins-Regular.ttf", 20f);
 
-                Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(20f);
-                // Designing button inside try and catch 
-                login.setFont(customFont);
-                signup.setFont(customFont);
-            }
-
-        } catch (FontFormatException | IOException e) {
-            System.err.println("Error loading font poppins: " + e.getMessage());
-        }
-
-        // Border Designs
-        Color greenBorder = new Color(34, 82, 20);
-        LineBorder defaultBorder = new LineBorder(greenBorder, 2, false);
-
-        greenButtonStyle(login, greenBorder, defaultBorder);
-        greenButtonStyle(signup, greenBorder, defaultBorder);
-  
+        // Used the button utils for centralized and efficient styling 
+        ButtonUtils.styleGreenButton(login, btnFont);
+        ButtonUtils.styleGreenButton(signup, btnFont);
 
         // Listeners with debuggers
         login.addActionListener(e -> {
@@ -130,9 +113,6 @@ public class LandingPage extends JPanel {
         });
         
         // Adding buttons 
-        buttonHoverEffect(login, greenBorder, defaultBorder);
-        buttonHoverEffect(signup, greenBorder, defaultBorder);
-
         buttonPanel.add(login);
         buttonPanel.add(Box.createHorizontalStrut(30));
         buttonPanel.add(signup);
@@ -157,41 +137,6 @@ public class LandingPage extends JPanel {
         layeredPane.add(textPanel, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(buttonPanel, JLayeredPane.PALETTE_LAYER);
 
-    }
-
-    // Helper method for base button style
-    private static void greenButtonStyle(JButton button, Color greenBorder, LineBorder defaultBorder) {
-        button.setContentAreaFilled(false);
-        button.setOpaque(true);
-        button.setForeground(greenBorder);
-        button.setFocusPainted(false);
-        button.setBorder(defaultBorder);
-    }
-
-    // Fully robust button hover/press effect (fix for all your issues)
-    private static void buttonHoverEffect(JButton button, Color greenBorder, LineBorder defaultBorder) {
-        Color lighterGreen = new Color(148, 173, 146);
-        button.setBorder(defaultBorder);
-
-        button.getModel().addChangeListener(e -> {
-            ButtonModel model = button.getModel();
-
-            if (model.isPressed() && model.isArmed()) {
-                // Pressed state: lighter green background, white text
-                button.setContentAreaFilled(false);
-                button.setBackground(lighterGreen);
-                button.setForeground(Color.WHITE);
-            } else if (model.isRollover()) {
-                // Hover state: dark green background, white text
-                button.setContentAreaFilled(false);
-                button.setBackground(greenBorder);
-                button.setForeground(Color.WHITE);
-            } else {
-                // Normal state: transparent background, green text
-                button.setContentAreaFilled(false);
-                button.setBackground(null);
-                button.setForeground(greenBorder);
-            }
-        });
-    }
+    }    
 }
+// GOAL FOR THIS PANEL IS TO MAKE IT RESPONSIVE IF I STILL HAVE SUFFICIENT TIME
