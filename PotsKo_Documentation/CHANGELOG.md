@@ -158,3 +158,27 @@
 - Responsibilities and structure of `LandingPage`, `LoginPanel`, and `SignupPanel`.
 - Planned integration of authentication and registration with the database.
 - Noted that login and signup/database connection work is ongoing as of June 1.
+
+
+## 📦 Weekly Changelog (June 1 – June 4, 2025)
+
+### ✨ Added
+
+- Completed initial UI for `LoginPanel` and `SignupPanel` using custom fonts (via `FontUtils`) and consistent button styling (`ButtonUtils`).
+- Implemented robust font caching and error handling in `FontUtils` for efficient font loading.
+- Designed and integrated reusable green button styles in `ButtonUtils`, ensuring a cohesive look across authentication panels.
+- Began building the homepage/dashboard UI structure based on the Figma mockup, including navigation sidebar, plant dashboard cards, growth progress, reminders, and placeholders for AI/weather panels.
+- Exported and prepared Figma assets (icons, backgrounds) for integration into the Java Swing UI.
+
+### ✅ Enhanced Project Structure
+
+- Clarified and standardized panel navigation, ensuring seamless switching and future scalability.
+- Improved handling of manual vs. managed layout positioning, especially with `BoxLayout` and null layouts, for precise UI alignment.
+- Documented the usage of utility classes (`FontUtils`, `ButtonUtils`) for consistent styling and easier maintenance.
+
+### 🧠 Discussed
+
+- Approaches to integrating external APIs (OpenWeatherMap for weather, OpenAI for plant Q&A) and best practices for API key management.
+- Limitations of manual positioning with layout managers and strategies for achieving pixel-perfect layouts from Figma in Swing.
+- Strategies for prioritizing core features (authentication, navigation, basic dashboard) and using placeholders or static data for demo-readiness.
+- Set clear next steps: finalizing the homepage UI, implementing weather/AI API calls, and polishing navigation between all panels.
