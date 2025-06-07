@@ -165,28 +165,35 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
         // Full Name 
         sf.gridy = 0;
         formPanelWhite.add(new JLabel("Full Name:"), sf);
-        sf.gridy++;
+        sf.gridy++; //increment the rown number to 1 
         formPanelWhite.add(new JTextField(20), sf);
 
         // Email
-        sf.gridy ++; 
+        sf.gridy ++; //increment the row number to 2 
         formPanelWhite.add(new JLabel("Email:"), sf);
-        sf.gridy++;
+        sf.gridy++; //increment the row number to 3 
         formPanelWhite.add(new JTextField(20), sf);
 
         // Password
-        sf.gridy++;
+        sf.gridy++; //increment the row number to 4
         formPanelWhite.add(new JLabel("Password:"), sf);
-        sf.gridy++;
+        sf.gridy++; //increment the row number to 5 
         formPanelWhite.add(new JTextField(20), sf);
 
         // Confirm Password
-        sf.gridy++;
+        sf.gridy++; //increment the row number to 6 
         formPanelWhite.add(new JLabel("Confirm Password:"), sf);
-        sf.gridy++;
+        sf.gridy++; //increment the row number to 7
         formPanelWhite.add(new JTextField(20) ,sf);
 
         // Sign Up button
+        sf.gridy++;
+        JButton signupButton = new JButton("Sign Up");
+        Font signupButtonfnt = FontUtils.getFont("Poppins-Regular.ttf", 30f);
+        ButtonUtils.styleGreenButton(signupButton, signupButtonfnt);
+        sf.gridy++;
+        formPanelWhite.add(signupButton, sf);
+        // loginButton.addActionListener(e -> mainFrame.showLogin());
         
         // Adding panels inside LayeredPane 
         add(whitePanel, JLayeredPane.MODAL_LAYER);
