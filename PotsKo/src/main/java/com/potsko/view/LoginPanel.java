@@ -2,6 +2,7 @@ package com.potsko.view;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -14,13 +15,17 @@ import java.awt.RenderingHints;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.potsko.utils.ButtonUtils;
 import com.potsko.utils.FontUtils;
 import com.potsko.utils.RoundedPasswordField;
 import com.potsko.utils.RoundedTextField;
@@ -100,44 +105,84 @@ public class LoginPanel extends JLayeredPane{
         fpW.gridy = 0; 
         fpW.weightx = 1.0;
         fpW.weighty = 1.0;
-        fpW.insets = new Insets(125, 0, 20, 0);
+        fpW.insets = new Insets(125, 15, 20, 15);
         fpW.anchor = GridBagConstraints.CENTER;
 
         // Sets GridBag constraints for the log in forms 
         GridBagConstraints lf = new GridBagConstraints();
         lf.gridx = 0;
-        lf.insets = new Insets(20, 15, 30, 15);
+        lf.weightx = 1.0;
+        lf.weighty = 0.0;
         lf.fill = GridBagConstraints.HORIZONTAL;
+        lf.anchor = GridBagConstraints.NORTHWEST;
 
         // Setting up and designing the login forms 
 
         // Email 
         lf.gridy = 0;
-        lf.insets = new Insets(0, 0, 5, 0);
+        lf.insets = new Insets(80, 20, 10, 20);
         JLabel userEmail = new JLabel("Email");
         userEmail.setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 30f));
         formPanelWhite.add(userEmail,lf);
 
         lf.gridy++; // increment the row number to 1 
-        lf.insets = new Insets(20, 0, 30, 0);
+        lf.insets = new Insets(5,20, 5, 20);
         formPanelWhite.add(new RoundedTextField(40), lf);
 
         // Password 
         lf.gridy++;
-        lf.insets = new Insets(0, 0, 5, 0);
+        lf.insets = new Insets(50, 20, 10, 20);
         JLabel userPass = new JLabel("Password");
         userPass.setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 30f));
         formPanelWhite.add(userPass,lf);
 
         lf.gridy++; // increment the row number to 2 
-        lf.insets = new Insets (20, 0, 30, 0);
+        lf.insets = new Insets (5, 20, 5, 20);
         formPanelWhite.add(new RoundedPasswordField(40), lf);
+
+        // Log In button 
+        lf.gridy++;
+        JButton loginButton = new JButton("Log In");
+        Font loginButtonfnt = FontUtils.getFont("Poppins-Regular.ttf", 30f);
+        ButtonUtils.styleGreenButton(loginButton, loginButtonfnt);
+        loginButton.addActionListener(e -> mainFrame.showHome());
+        lf.insets = new Insets(250, 20, 15, 20);
+        formPanelWhite.add(loginButton, lf);
+
+        // Setting up Sign up text clickable label
+        lf.gridy++; 
+        lf.insets = new Insets (15, 50, 0, 50);
+        JLabel signupLabel = new JLabel ( "<html>"
+        + "<div style='text-align:center;'>"
+        + "<span style='Arial, sans-serif; font-size:15pt; color:rgb(81,103,78);'>"
+        + "Don't have an account? "
+        + "<a href='' style='color:#51774e; text-decoration:underline; font-weight:bold;'>Sign Up</a>"
+        + "</span>"
+        + "</div>"
+    + "</html>");
+        signupLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                mainFrame.showSignup();
+            }
+        });
+
+        // Position 
+        signupLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        signupLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        formPanelWhite.add(signupLabel, lf);
+
+        // This moves every component above 
+        lf.gridy++; 
+        lf.weighty = 1.0;
+        lf.fill = GridBagConstraints.BOTH;
+        formPanelWhite.add(Box.createVerticalGlue(), lf);
 
         // Seting up the panel for the application of colors 
         JPanel whitePanel = new JPanel();
         whitePanel.setOpaque(false);
         whitePanel.setLayout(null);
-        whitePanel.setBounds(0, 0, 640, 720);
+        whitePanel.setBounds(640, 0, 640, 720);
 
         // Text panel my displayed text on whitePanel, this is to avoid the disruption of absolute positioning
         JPanel textPanel2 = new JPanel();
@@ -149,33 +194,34 @@ public class LoginPanel extends JLayeredPane{
         // This loads the image overlapping using JLayeredPane
         try {
             ImageIcon rightPlant = new ImageIcon(getClass().getResource("/images/appImg/plant1.png"));
-            Image rightPlantScl = rightPlant.getImage().getScaledInstance(638, 638, Image.SCALE_SMOOTH);
+            Image rightPlantScl = rightPlant.getImage().getScaledInstance(800, 800, Image.SCALE_SMOOTH);
             JLabel rightPlantLbl = new JLabel(new ImageIcon(rightPlantScl));
-            rightPlantLbl.setBounds(870, 255, 638, 638);
+            rightPlantLbl.setBounds(1400, 460, 800, 800);
             add(rightPlantLbl, JLayeredPane.PALETTE_LAYER);
         } catch (Exception e) {
             System.err.println("Failed to load image: " + e.getMessage());
         }
     
-        Font customFont2 = FontUtils.getFont("AnticDidone-Regular.ttf", 75f);
+        Font customFont2 = FontUtils.getFont("AnticDidone-Regular.ttf", 90f);
+        Font customFont3 = FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 110);
         
         JLabel textLabel2 = new JLabel("Welcome Back");
         textLabel2.setForeground(Color.BLACK);
         textLabel2.setFont(customFont2);
-        textLabel2.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        textLabel2.setBorder(new EmptyBorder(40, 45, 0, 0));
+        textLabel2.setAlignmentX(Component.LEFT_ALIGNMENT);
+        textLabel2.setBorder(new EmptyBorder(0, 900, 0, 0));
 
         JLabel textLabel3 = new JLabel("to");
         textLabel3.setForeground(Color.BLACK);
         textLabel3.setFont(customFont2);
-        textLabel3.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        textLabel3.setBorder(new EmptyBorder(0, 45, 0, 0));
+        textLabel3.setAlignmentX(Component.LEFT_ALIGNMENT);
+        textLabel3.setBorder(new EmptyBorder(0, 910, 0, 0));
 
         JLabel textLabel4 = new JLabel("PotsKo");
         textLabel4.setForeground(new Color(34, 82, 20));
-        textLabel4.setFont(customFont2);
-        textLabel4.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        textLabel4.setBorder(new EmptyBorder(0, 45, 0, 0));
+        textLabel4.setFont(customFont3);
+        textLabel4.setAlignmentX(Component.LEFT_ALIGNMENT);
+        textLabel4.setBorder(new EmptyBorder(0, 1030, 0, 0));
 
         // Adding panels inside LayeredPane
         add(greenPanel, JLayeredPane.MODAL_LAYER);
@@ -184,14 +230,16 @@ public class LoginPanel extends JLayeredPane{
         add(whitePanel, JLayeredPane.MODAL_LAYER);
         add(textPanel2, JLayeredPane.MODAL_LAYER);
 
-        // Adding text inside respective panels 
+        // Adding text inside respective panels
         textPanel2.add(textLabel2);
+        textPanel2.add(Box.createVerticalStrut(10));
         textPanel2.add(textLabel3);
+        textPanel2.add(Box.createVerticalStrut(-123)); 
         textPanel2.add(textLabel4);
 
         // Adding elements label / panels using GridBag
-        greenPanel.add(textLabel1, gbc);
         greenPanel.add(formPanelWhite, fpW);
+        greenPanel.add(textLabel1, gbc);
         
         // Makes the log in panel fill up the whole window
         addComponentListener(new ComponentAdapter() {
@@ -199,8 +247,8 @@ public class LoginPanel extends JLayeredPane{
             public void componentResized(ComponentEvent e) {
                 Dimension size = getSize();
                 loginPanel.setBounds(0, 0, size.width, size.height);
-                whitePanel.setBounds(0, 0, size.width / 2, size.height);
-                greenPanel.setBounds(size.width / 2, 0, size.width - size.width / 2, size.height);
+                greenPanel.setBounds(0, 0, size.width / 2, size.height);
+                whitePanel.setBounds(size.width / 2, 0, size.width - size.width / 2, size.height);
             }
         });
     }
