@@ -17,7 +17,7 @@ public class RoundedTextField extends JTextField {
     public RoundedTextField(int size) {
         super(size);
         setOpaque(false);
-        setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 0));
         setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 20f));
         setForeground(Color.WHITE);
         setPreferredSize(new java.awt.Dimension(1500, 75));
