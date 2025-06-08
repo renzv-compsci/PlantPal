@@ -1,7 +1,9 @@
 package com.potsko.view;
 
+
 import java.awt.CardLayout;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,10 +38,12 @@ public class MainFrame extends JFrame {
         LandingPage landingPage = new LandingPage(this);
         LoginPanel loginPanel = new LoginPanel(this);
         SignupPanel signupPanel = new SignupPanel(this);
+        HomePanel homePanel = new HomePanel(this);
 
         cardPanel.add(landingPage, "landing");
         cardPanel.add(loginPanel, "login");
         cardPanel.add(signupPanel, "signup");
+        cardPanel.add(homePanel, "home");
 
         setContentPane(cardPanel);
         setVisible(true);
@@ -55,6 +59,10 @@ public class MainFrame extends JFrame {
 
     public void showLanding() {
         cardLayout.show(cardPanel, "landing");
+    }
+
+    public void showHome() {
+        cardLayout.show(cardPanel, "home");
     }
 
     public static void main(String[] args) {
