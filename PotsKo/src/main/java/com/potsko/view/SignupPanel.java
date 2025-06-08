@@ -20,11 +20,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import com.potsko.utils.ButtonUtils;
 import com.potsko.utils.FontUtils;
+import com.potsko.utils.RoundedPasswordField;
+import com.potsko.utils.RoundedTextField;
 
 public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for absolute positioning 
     public SignupPanel(MainFrame mainFrame) {
@@ -159,41 +160,64 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
         // Sets GridBag constraints for the sign up forms 
         GridBagConstraints sf = new GridBagConstraints();
         sf.gridx = 0;
-        sf.insets = new Insets(10,20,10,20);
+        sf.insets = new Insets(20,15,30,15);
         sf.fill = GridBagConstraints.HORIZONTAL; // Sets all of the sign up forms horizontally 
 
-        // Full Name 
+        // Designing the signup forms 
+
+        // Full Name
         sf.gridy = 0;
-        formPanelWhite.add(new JLabel("Full Name:"), sf);
-        sf.gridy++; //increment the rown number to 1 
-        formPanelWhite.add(new JTextField(20), sf);
+        sf.insets = new Insets(0, 0, 5, 0);
+        JLabel userName = new JLabel("Full Name:");
+        userName.setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 30f));
+        formPanelWhite.add(userName,sf);
+
+        sf.gridy++; //increment the rown number to 1
+        sf.insets = new Insets(20, 0, 30, 0); 
+        formPanelWhite.add(new RoundedTextField(40), sf);
 
         // Email
         sf.gridy ++; //increment the row number to 2 
-        formPanelWhite.add(new JLabel("Email:"), sf);
+        sf.insets = new Insets(0, 0, 5, 0);
+        JLabel userEmail = new JLabel("Email");
+        userEmail.setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 30f));
+        formPanelWhite.add(userEmail,sf);
+
         sf.gridy++; //increment the row number to 3 
-        formPanelWhite.add(new JTextField(20), sf);
+        sf.insets = new Insets(20, 0, 30, 0); 
+        formPanelWhite.add(new RoundedTextField(40), sf);
 
         // Password
         sf.gridy++; //increment the row number to 4
-        formPanelWhite.add(new JLabel("Password:"), sf);
+        sf.insets = new Insets(0, 0, 5, 0);
+        JLabel userPass = new JLabel("Password:");
+        userPass.setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 30f));
+        formPanelWhite.add(userPass,sf);
+
         sf.gridy++; //increment the row number to 5 
-        formPanelWhite.add(new JTextField(20), sf);
+        sf.insets = new Insets(20, 0, 30, 0); 
+        formPanelWhite.add(new RoundedPasswordField(40), sf);
 
         // Confirm Password
         sf.gridy++; //increment the row number to 6 
-        formPanelWhite.add(new JLabel("Confirm Password:"), sf);
+        sf.insets = new Insets(0, 0, 5, 0);
+        JLabel userFinalPass = new JLabel("Confirm Password:");
+        userFinalPass.setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 30f));
+        formPanelWhite.add(userFinalPass,sf);
+
         sf.gridy++; //increment the row number to 7
-        formPanelWhite.add(new JTextField(20) ,sf);
+        sf.insets = new Insets(20, 0, 30, 0); 
+        formPanelWhite.add(new RoundedPasswordField(40) ,sf);
 
         // Sign Up button
         sf.gridy++;
         JButton signupButton = new JButton("Sign Up");
         Font signupButtonfnt = FontUtils.getFont("Poppins-Regular.ttf", 30f);
         ButtonUtils.styleGreenButton(signupButton, signupButtonfnt);
+        signupButton.addActionListener(e -> mainFrame.showHome());
+
         sf.gridy++;
         formPanelWhite.add(signupButton, sf);
-        // loginButton.addActionListener(e -> mainFrame.showLogin());
         
         // Adding panels inside LayeredPane 
         add(whitePanel, JLayeredPane.MODAL_LAYER);
@@ -206,14 +230,14 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
         whitePanel.add(loginButton);
 
         // Addind text inside respective panels 
-        textPanel1.add(textLabel1);
+        textPanel1.add(textLabel1);    
         textPanel1.add(textLabel2);
 
         // Adding elements label / panels using GridBag
         greenPanel.add(textLabel3, gbc);
         greenPanel.add(formPanelWhite,fpW);
 
-        // Makes the sign up panel responsive
+        // Makes the sign up panel fill up the whole window
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
