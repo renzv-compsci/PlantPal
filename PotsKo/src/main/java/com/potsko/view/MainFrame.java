@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import com.potsko.db.UserDAO;
+
 public class MainFrame extends JFrame {
     
     private final CardLayout cardLayout;
@@ -21,6 +23,8 @@ public class MainFrame extends JFrame {
         setSize(1200, 780);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        UserDAO.printAllUsers(); // This will print all users to the console
+        // Uncomment the line above if UserDAO and printAllUsers() exist and are correctly imported.
 
         // Set window icon
         try {
