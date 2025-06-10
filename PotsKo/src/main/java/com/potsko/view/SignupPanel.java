@@ -22,6 +22,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.potsko.db.UserDAO;
 import com.potsko.utils.ButtonUtils;
 import com.potsko.utils.FontUtils;
 import com.potsko.utils.RoundedPasswordField;
@@ -165,16 +166,22 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
 
         // Designing the signup forms 
 
+        // Declare input fields 
+        RoundedTextField userNamefield = new RoundedTextField(40);
+        RoundedTextField userEmailfield = new RoundedTextField(40);
+        RoundedPasswordField userPassfield = new RoundedPasswordField(40);
+        RoundedPasswordField finalPassfield = new RoundedPasswordField(40);
+
         // Full Name
         sf.gridy = 0;
         sf.insets = new Insets(0, 0, 5, 0);
         JLabel userName = new JLabel("Full Name:");
         userName.setFont(FontUtils.getFont("AnnapurnaSIL-Bold.ttf", 30f));
-        formPanelWhite.add(userName,sf);
+        formPanelWhite.add(userName, sf);
 
         sf.gridy++; //increment the rown number to 1
         sf.insets = new Insets(20, 0, 30, 0); 
-        formPanelWhite.add(new RoundedTextField(40), sf);
+        formPanelWhite.add(userNamefield, sf); 
 
         // Email
         sf.gridy ++; //increment the row number to 2 
@@ -185,7 +192,7 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
 
         sf.gridy++; //increment the row number to 3 
         sf.insets = new Insets(20, 0, 30, 0); 
-        formPanelWhite.add(new RoundedTextField(40), sf);
+        formPanelWhite.add(userEmailfield, sf);
 
         // Password
         sf.gridy++; //increment the row number to 4
@@ -196,7 +203,7 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
 
         sf.gridy++; //increment the row number to 5 
         sf.insets = new Insets(20, 0, 30, 0); 
-        formPanelWhite.add(new RoundedPasswordField(40), sf);
+        formPanelWhite.add(userPassfield, sf);
 
         // Confirm Password
         sf.gridy++; //increment the row number to 6 
@@ -207,14 +214,37 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
 
         sf.gridy++; //increment the row number to 7
         sf.insets = new Insets(20, 0, 30, 0); 
-        formPanelWhite.add(new RoundedPasswordField(40) ,sf);
+        formPanelWhite.add(finalPassfield ,sf);
 
         // Sign Up button
         sf.gridy++;
         JButton signupButton = new JButton("Sign Up");
         Font signupButtonfnt = FontUtils.getFont("Poppins-Regular.ttf", 30f);
         ButtonUtils.styleGreenButton(signupButton, signupButtonfnt);
-        signupButton.addActionListener(e -> mainFrame.showHome());
+
+
+        // DB connection logic for the signup Panel
+        signupButton.addActionListener(e -> {
+            String username = userNamefield.getText();
+            String email = userEmailfield.getText();
+            String password = new String(userPassfield.getPassword());
+            String confirmPassword = new String(finalPassfield.getPassword());
+        
+            // Conditionals for each user inputs
+
+            if (!password.equals(confirmPassword)) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Password do not match");
+                return;
+            }
+
+            boolean success = UserDAO.userRegister(username, email, password);
+            if (success) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Sign Up successful! Welcome to PotsKo");
+                mainFrame.showHome();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Sign up failed. Try different email or username");
+            }
+        });
 
         sf.gridy++;
         formPanelWhite.add(signupButton, sf);
