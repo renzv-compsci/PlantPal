@@ -25,6 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.potsko.db.UserDAO;
 import com.potsko.utils.ButtonUtils;
 import com.potsko.utils.FontUtils;
 import com.potsko.utils.RoundedPasswordField;
@@ -118,6 +119,10 @@ public class LoginPanel extends JLayeredPane{
 
         // Setting up and designing the login forms 
 
+        // Declaring input fields for database connection 
+        RoundedTextField userEmailfield = new RoundedTextField(40);
+        RoundedPasswordField finalPassfield = new RoundedPasswordField(40);
+
         // Email 
         lf.gridy = 0;
         lf.insets = new Insets(80, 20, 10, 20);
@@ -127,7 +132,7 @@ public class LoginPanel extends JLayeredPane{
 
         lf.gridy++; // increment the row number to 1 
         lf.insets = new Insets(5,20, 5, 20);
-        formPanelWhite.add(new RoundedTextField(40), lf);
+        formPanelWhite.add(userEmailfield, lf);
 
         // Password 
         lf.gridy++;
@@ -138,14 +143,13 @@ public class LoginPanel extends JLayeredPane{
 
         lf.gridy++; // increment the row number to 2 
         lf.insets = new Insets (5, 20, 5, 20);
-        formPanelWhite.add(new RoundedPasswordField(40), lf);
+        formPanelWhite.add(finalPassfield,lf);
 
         // Log In button 
         lf.gridy++;
         JButton loginButton = new JButton("Log In");
         Font loginButtonfnt = FontUtils.getFont("Poppins-Regular.ttf", 30f);
         ButtonUtils.styleGreenButton(loginButton, loginButtonfnt);
-        loginButton.addActionListener(e -> mainFrame.showHome());
         lf.insets = new Insets(250, 20, 15, 20);
         formPanelWhite.add(loginButton, lf);
 
@@ -159,11 +163,33 @@ public class LoginPanel extends JLayeredPane{
         + "<a href='' style='color:#51774e; text-decoration:underline; font-weight:bold;'>Sign Up</a>"
         + "</span>"
         + "</div>"
-    + "</html>");
+        + "</html>");
+        
         signupLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 mainFrame.showSignup();
+            }
+        });
+        
+        // DB connection logic for the login panel
+        loginButton.addActionListener(e -> {
+            String identifier = userEmailfield.getText();
+            String password = new String(finalPassfield.getPassword());
+
+            // Conditionals for iinput validation
+            if (identifier.isBlank() || password.isBlank()) { 
+                javax.swing.JOptionPane.showMessageDialog(this, "Username / Email and Password can not be empty." , "Input Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            boolean success = UserDAO.userLogin(identifier, password);
+
+            if (success) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Login successful! Welcome Back");
+                mainFrame.showHome();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Invalid username/email or password", "Login Failed", javax.swing.JOptionPane.ERROR_MESSAGE);
             }
         });
 
