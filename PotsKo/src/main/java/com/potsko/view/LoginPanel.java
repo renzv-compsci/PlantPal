@@ -184,7 +184,6 @@ public class LoginPanel extends JLayeredPane{
             }
 
             boolean success = UserDAO.userLogin(identifier, password);
-
             if (success) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Login successful! Welcome Back");
                 mainFrame.showHome();
