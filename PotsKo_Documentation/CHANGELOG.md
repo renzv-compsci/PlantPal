@@ -160,25 +160,32 @@
 - Noted that login and signup/database connection work is ongoing as of June 1.
 
 
-## 📦 Weekly Changelog (June 1 – June 4, 2025)
+## 📦 Weekly Changelog (June 2 – June 8, 2025)
 
 ### ✨ Added
 
-- Completed initial UI for `LoginPanel` and `SignupPanel` using custom fonts (via `FontUtils`) and consistent button styling (`ButtonUtils`).
-- Implemented robust font caching and error handling in `FontUtils` for efficient font loading.
-- Designed and integrated reusable green button styles in `ButtonUtils`, ensuring a cohesive look across authentication panels.
-- Began building the homepage/dashboard UI structure based on the Figma mockup, including navigation sidebar, plant dashboard cards, growth progress, reminders, and placeholders for AI/weather panels.
-- Exported and prepared Figma assets (icons, backgrounds) for integration into the Java Swing UI.
+- Created and integrated an SQLite database for persistent data storage, including `users`, `plants`, and `growthstages` tables, with proper primary and foreign key constraints.
+- Implemented auto-timestamping for user registration (`date_created DATETIME DEFAULT CURRENT_TIMESTAMP`) in the `users` table.
+- Added project documentation and step-by-step guides for using DB Browser for SQLite: creating tables, setting default values, and establishing foreign key relationships.
+- Built initial database connection logic in the Java backend, enabling user registration data to be saved and retrieved.
+- Completed initial UI for `LoginPanel` and `SignupPanel` using custom fonts (`FontUtils`) and consistent button styling (`ButtonUtils`).
+- Designed and integrated reusable green button styles in `ButtonUtils` for a cohesive look across authentication panels.
+- Began constructing the homepage/dashboard UI based on the Figma mockup, including navigation sidebar, plant dashboard cards, growth progress, reminders, and placeholders for AI/weather panels.
+- Exported and prepared Figma assets (icons, backgrounds) for use in the Java Swing UI.
 
 ### ✅ Enhanced Project Structure
 
-- Clarified and standardized panel navigation, ensuring seamless switching and future scalability.
-- Improved handling of manual vs. managed layout positioning, especially with `BoxLayout` and null layouts, for precise UI alignment.
-- Documented the usage of utility classes (`FontUtils`, `ButtonUtils`) for consistent styling and easier maintenance.
+- Refined SQL table schemas for data integrity (e.g., `username` and `email` as UNIQUE in `users`, explicit foreign key relationships in `growthstages`).
+- Standardized use of explicit, best-practice SQL syntax for foreign keys (`FOREIGN KEY (plant_id) REFERENCES plants(plant_id)`).
+- Unified and improved onboarding documentation for contributors regarding database setup, file management, and the difference between local and online SQLite tools.
+- Clarified and standardized panel navigation for easier scaling and seamless switching between views.
+- Improved layout handling with `BoxLayout` and manual positioning for pixel-perfect UI alignment.
+- Documented utility class usage (`FontUtils`, `ButtonUtils`) for consistent styling and easier maintenance.
 
 ### 🧠 Discussed
 
-- Approaches to integrating external APIs (OpenWeatherMap for weather, OpenAI for plant Q&A) and best practices for API key management.
-- Limitations of manual positioning with layout managers and strategies for achieving pixel-perfect layouts from Figma in Swing.
-- Strategies for prioritizing core features (authentication, navigation, basic dashboard) and using placeholders or static data for demo-readiness.
-- Set clear next steps: finalizing the homepage UI, implementing weather/AI API calls, and polishing navigation between all panels.
+- Best practices for defining default values and foreign keys in SQLite and dealing with quirks in GUI tools versus raw SQL.
+- Strategies for editing tables and migrating schema changes safely in SQLite, including backup and migration patterns.
+- Approaches for integrating external APIs (OpenWeatherMap for weather, OpenAI for plant Q&A) and managing API keys securely.
+- Prioritizing core features (authentication, navigation, dashboard basics) and using placeholders/static data for demos.
+- Set clear next steps: finalize homepage UI, implement weather/AI API calls, and polish navigation between all panels.
