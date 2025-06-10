@@ -213,7 +213,7 @@ public class LoginPanel extends JLayeredPane{
         JPanel textPanel2 = new JPanel();
         textPanel2.setOpaque(false);
         textPanel2.setLayout(new BoxLayout(textPanel2, BoxLayout.Y_AXIS));
-        textPanel2.setBounds(140, 265, 2000, 2000);
+        textPanel2.setBounds(140, 265,  2000, 2000);
 
         // This is where you add right panel components
         // This loads the image overlapping using JLayeredPane
