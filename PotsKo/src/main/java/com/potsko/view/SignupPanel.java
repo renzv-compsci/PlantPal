@@ -166,7 +166,7 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
 
         // Designing the signup forms 
 
-        // Declare input fields 
+        // Declare input fields for database connection 
         RoundedTextField userNamefield = new RoundedTextField(40);
         RoundedTextField userEmailfield = new RoundedTextField(40);
         RoundedPasswordField userPassfield = new RoundedPasswordField(40);
@@ -233,7 +233,12 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
             // Conditionals for each user inputs
 
             if (!password.equals(confirmPassword)) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Password do not match");
+                javax.swing.JOptionPane.showMessageDialog(this, "Password do not match", "Input Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            else if(username.isBlank() || email.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Username, Email, and Password can not be empty", "Input Error", javax.swing.JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
