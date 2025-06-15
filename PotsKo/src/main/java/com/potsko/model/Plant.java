@@ -1,10 +1,19 @@
 package com.potsko.model;
 
-// data model or POJO
-// stores the properties for a plant 
+// Data model or POJO
+// Stores the properties for a plant
 
 import java.util.List;
 
+/**
+ * Represents a plant and its properties.
+ *
+ * OOP Principles demonstrated:
+ * - Encapsulation: All fields are private and accessed via public getters.
+ * - Abstraction: The class abstracts the concept of a plant.
+ * - Immutability: All fields are final and set only via the constructor.
+ * - Association: The plant has a list of growth stages (composition).
+ */
 public class Plant {
     private final int id;
     private final String name;

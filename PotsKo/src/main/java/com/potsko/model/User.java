@@ -1,5 +1,13 @@
 package com.potsko.model;
 
+/**
+ * Represents a user of the application and their profile information.
+ *
+ * OOP Principles demonstrated:
+ * - Encapsulation: All fields are private and accessed via public getters/setters.
+ * - Abstraction: The class abstracts the concept of a user profile.
+ * - Mutability: Most fields can be changed after object creation via setters.
+ */
 public class User {
     private final int id;
     private String fullName;

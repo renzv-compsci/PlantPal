@@ -1,12 +1,21 @@
 package com.potsko.model;
 
+/**
+ * Represents a journal entry written by a user, possibly about a specific plant.
+ * 
+ * OOP Principles demonstrated:
+ * - Encapsulation: All fields are private and accessed via public getters.
+ * - Abstraction: The class abstracts the concept of a journal entry.
+ * - Immutability: All fields are final and set only via the constructor.
+ * - (Optionally) Association: userPlantId links this entry to a plant (if any).
+ */
 public class JournalEntry {
-    private int entryId;
-    private int userId;
-    private Integer userPlantId; // nullable
-    private String title;
-    private String content;
-    private long dateWritten;
+    private final int entryId;
+    private final int userId;
+    private final Integer userPlantId; // nullable
+    private final String title;
+    private final String content;
+    private final long dateWritten;
 
     public JournalEntry(int entryId, int userId, Integer userPlantId, String title, String content, long dateWritten) {
         this.entryId = entryId;
@@ -40,6 +49,4 @@ public class JournalEntry {
     public long getDateWritten() {
         return dateWritten;
     }
-
-    // Setters...
 }

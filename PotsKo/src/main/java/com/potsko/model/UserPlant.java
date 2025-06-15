@@ -2,6 +2,15 @@ package com.potsko.model;
 
 import java.time.Instant;
 
+/**
+ * Represents a plant owned by a user, including its nickname, watering info, and growth stage.
+ *
+ * OOP Principles demonstrated:
+ * - Encapsulation: All fields are private and accessed via public getters/setters.
+ * - Abstraction: The class abstracts the concept of a user's plant.
+ * - Mutability: Most fields can be changed after object creation via setters.
+ * - Association: Optionally holds a reference to a Plant object (composition/association).
+ */
 public class UserPlant {
     private final int userPlantId;
     private final int userId;
@@ -85,10 +94,5 @@ public class UserPlant {
 
     public void setPlant(Plant plant) {
         this.plant = plant;
-    }
-
-    public String getPhotoPath() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPhotoPath'");
     }
 }
