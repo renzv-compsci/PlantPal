@@ -1,0 +1,179 @@
+[
+    {
+       "id": 1,
+       "name": "Aloe Vera",
+       "tagalogName": "Sabila",
+       "scientificName": "Aloe barbadenis miller",
+       "category": "Succulent",
+       "wateringFrequency": "Once a week",
+       "sunlight": "Indirect sunlight",
+       "plantType": "Both",
+       "growthStages": [
+            "Germination", 
+            "Seedling", 
+            "Vegetative Growth", 
+            "Flowering", 
+            "Reproduction"
+        ],
+       "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 2,
+        "name": "Snake Plant",
+        "tagalogName": "Espada",
+        "scientificName": "Dracaena trifasciata",
+        "category": "Succulent",
+        "wateringFrequency": "Once every two weeks",
+        "sunlight": "Indirect sunlight",
+        "plantType": "Both",
+        "growthStages": [
+            "Gernination", 
+            "Seedling",
+            "Vegetative Growth",
+            "Mature"
+        ],
+        "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 3,
+        "name": "Monstera",
+        "tagalogName": "Tibatib",
+        "scientificName": "Monstera deliciosa",
+        "category": "Tropical",
+        "wateringFrequency": "Once every one to two weeks",
+        "sunlight": "Bright, indirect light",
+        "plantType": "Both",
+        "growthStages": [
+            "Germination",
+            "Seedling", 
+            "Juvenile Plant", 
+            "Mature",
+            "Fenestration"
+        ],
+        "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 4,
+        "name": "Peace Lilly",
+        "tagalogName": "Lilang Kapayapaan",
+        "scientificName": "Spathiphyllum wallisii",
+        "category": "Flowering plants",
+        "wateringFrequency": "Once a week",
+        "sunlight": "Bright, indirect light",
+        "plantType": "Indoor",
+        "growthStages": [
+            "Germination",
+            "Seedling",
+            "Vegetative Growth",
+            "Flowering"
+        ],
+        "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 5,
+        "name": "Pothos",
+        "tagalogName": "Golden Pothos",
+        "scientificName": "Epipremnum aureum",
+        "category": "Tropical",
+        "wateringFrequency": "Once every one to two weeks",
+        "sunlight": "Bright, indirect light",
+        "plantType": "Indoor",
+        "growthStages": [
+            "Juvenile Plant",
+            "Mature"
+        ],
+        "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 6, 
+        "name": "Rubber Plant",
+        "tagalogName": "Balete",
+        "scientificName": "Ficus elastica",
+        "category": "Tropical",
+        "wateringFrequency": "Once every one to two weeks",
+        "sunlight": "Bright, indirect light",
+        "plantType": "Both",
+        "growthStages": [
+            "Seedling",
+            "Vegetative Growth",
+            "Mature"
+        ],
+        "image": "images/appImg/plant2.png" 
+    },
+
+    {
+        "id": 7,
+        "name": "Calathea",
+        "tagalogName": "Prayer Plant",
+        "scientificName": "Calathea Ornata",
+        "category": "Tropical",
+        "wateringFrequency": "Once every one to two weeks",
+        "sunlight": "Medium to bright indirect light",
+        "plantType": "Indoor",
+        "growthStages": [
+            "Germination",
+            "Seedling",
+            "Vegetative Growth",
+            "Flowering"
+        ],
+        "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 8,
+        "name": "Zanzibar Gem",
+        "tagalogName": "ZZ Plant",
+        "scientificName": "Zamioculcas zamiifolia",
+        "category": "Tropical",
+        "wateringFrequency": "Once every three weeks",
+        "sunlight": "Low to moderate light",
+        "plantType": "Indoor",
+        "growthStages": [
+            "Vegetative Growth",
+            "Flowering",
+            "Propagation"
+        ],
+        "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 9,
+        "name": "Lucky Bamboo",
+        "tagalogName": "Ribbon Plant",
+        "scientificName": "Dracaena sanderiana",
+        "category": "Tropical",
+        "wateringFrequency": "Once a week",
+        "sunlight": "Bright, indirect light",
+        "plantType": "Indoor",
+        "growthStages": [
+            "Propagation",
+            "Vegetative Growth",
+            "Rare flower",
+            "Maturation"
+        ],
+        "image": "images/appImg/plant2.png"
+    },
+
+    {
+        "id": 10,
+        "name": "Mayana",
+        "tagalogName": "Mayana",
+        "scientificName": "Coleus blumei",
+        "category": "Tropical",
+        "wateringFrequency": "Once a week",
+        "sunlight": "Direct sunlight",
+        "plantType": "Indoor",
+        "growthStages": [
+            "Germination",
+            "Seedling",
+            "Vegetative Growth", 
+            "Flowering"
+        ],
+        "image": "images/appImg/plant2.png"
+    }
+]

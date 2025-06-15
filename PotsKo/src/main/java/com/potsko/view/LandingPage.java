@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import com.potsko.utils.ButtonUtils;
+import com.potsko.utils.LandingButtonUtils;
 import com.potsko.utils.FontUtils;
 
 public class LandingPage extends JPanel {
@@ -98,8 +98,8 @@ public class LandingPage extends JPanel {
         Font btnFont = FontUtils.getFont("Poppins-Regular.ttf", 20f);
 
         // Used the button utils for centralized and efficient styling 
-        ButtonUtils.styleGreenButton(login, btnFont);
-        ButtonUtils.styleGreenButton(signup, btnFont);
+        LandingButtonUtils.styleGreenButton(login, btnFont);
+        LandingButtonUtils.styleGreenButton(signup, btnFont);
 
         // Listeners with debuggers
         login.addActionListener(e -> {

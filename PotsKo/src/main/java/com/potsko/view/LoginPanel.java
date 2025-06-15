@@ -26,8 +26,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.potsko.db.UserDAO;
-import com.potsko.utils.ButtonUtils;
 import com.potsko.utils.FontUtils;
+import com.potsko.utils.LandingButtonUtils;
 import com.potsko.utils.RoundedPasswordField;
 import com.potsko.utils.RoundedTextField;
 
@@ -149,7 +149,7 @@ public class LoginPanel extends JLayeredPane{
         lf.gridy++;
         JButton loginButton = new JButton("Log In");
         Font loginButtonfnt = FontUtils.getFont("Poppins-Regular.ttf", 30f);
-        ButtonUtils.styleGreenButton(loginButton, loginButtonfnt);
+        LandingButtonUtils.styleGreenButton(loginButton, loginButtonfnt);
         lf.insets = new Insets(250, 20, 15, 20);
         formPanelWhite.add(loginButton, lf);
 
@@ -177,16 +177,16 @@ public class LoginPanel extends JLayeredPane{
             String identifier = userEmailfield.getText();
             String password = new String(finalPassfield.getPassword());
 
-            // Conditionals for iinput validation
             if (identifier.isBlank() || password.isBlank()) { 
                 javax.swing.JOptionPane.showMessageDialog(this, "Username / Email and Password can not be empty." , "Input Error", javax.swing.JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            boolean success = UserDAO.userLogin(identifier, password);
-            if (success) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Login successful! Welcome Back");
+            int userId = UserDAO.userLogin(identifier, password);
+            if (userId != -1) {
+                mainFrame.setCurrentUserId(userId);
                 mainFrame.showHome();
+                // ...
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Invalid username/email or password", "Login Failed", javax.swing.JOptionPane.ERROR_MESSAGE);
             }

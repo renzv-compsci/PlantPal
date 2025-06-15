@@ -15,6 +15,7 @@ public class MainFrame extends JFrame {
     
     private final CardLayout cardLayout;
     private final JPanel cardPanel;
+    private int currentUserId = -1; // Default to -1 (not logged in)
 
     // Moved the setting up of the frame in main frame, this allows compatibility of cardlayout in all of my panels
     public MainFrame() {
@@ -39,18 +40,26 @@ public class MainFrame extends JFrame {
         cardLayout = new CardLayout();
         cardPanel = new JPanel(cardLayout);
 
-        LandingPage landingPage = new LandingPage(this);
-        LoginPanel loginPanel = new LoginPanel(this);
-        SignupPanel signupPanel = new SignupPanel(this);
-        HomePanel homePanel = new HomePanel(this);
-
-        cardPanel.add(landingPage, "landing");
-        cardPanel.add(loginPanel, "login");
-        cardPanel.add(signupPanel, "signup");
-        cardPanel.add(homePanel, "home");
+        // Add initial panels with placeholder userId (-1)
+        cardPanel.add(new LandingPage(this), "landing");
+        cardPanel.add(new LoginPanel(this), "login");
+        cardPanel.add(new SignupPanel(this), "signup");
+        cardPanel.add(new HomePanel(this, currentUserId), "home");
+        cardPanel.add(new DashboardPanel(this, currentUserId), "dashboard");
+        cardPanel.add(new JournalPanel(this, currentUserId), "journal");
+        cardPanel.add(new AvailablePlantsPanel(this, currentUserId), "available");
+        cardPanel.add(new ProfilePanel(this, currentUserId), "profile");
 
         setContentPane(cardPanel);
         setVisible(true);
+    }
+
+    public void setCurrentUserId(int userId) {
+        this.currentUserId = userId;
+    }
+
+    public int getCurrentUserId() {
+        return currentUserId;
     }
 
     public void showLogin() {
@@ -66,7 +75,33 @@ public class MainFrame extends JFrame {
     }
 
     public void showHome() {
-        cardLayout.show(cardPanel, "home");
+        setContentPane(new HomePanel(this, currentUserId));
+        revalidate();
+        repaint();
+    }
+
+    public void showDashboard() {
+        setContentPane(new DashboardPanel(this, currentUserId));
+        revalidate();
+        repaint();
+    }
+
+    public void showJournal() {
+        setContentPane(new JournalPanel(this, currentUserId));
+        revalidate();
+        repaint();
+    }
+
+    public void showAvailablePlants() {
+        setContentPane(new AvailablePlantsPanel(this, currentUserId));
+        revalidate();
+        repaint();
+    }
+
+    public void showProfile() {
+        setContentPane(new ProfilePanel(this, currentUserId));
+        revalidate();
+        repaint();
     }
 
     public static void main(String[] args) {

@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.potsko.db.UserDAO;
-import com.potsko.utils.ButtonUtils;
+import com.potsko.utils.LandingButtonUtils;
 import com.potsko.utils.FontUtils;
 import com.potsko.utils.RoundedPasswordField;
 import com.potsko.utils.RoundedTextField;
@@ -96,7 +96,7 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
         // Setting up the login button 
         JButton loginButton = new JButton("Log In");
         Font btnFont = FontUtils.getFont("Poppins-Regular.ttf", 20f);
-        ButtonUtils.styleGreenButton(loginButton, btnFont);
+        LandingButtonUtils.styleGreenButton(loginButton, btnFont);
         loginButton.addActionListener(e -> mainFrame.showLogin());
 
         // Preffered size for the log in button
@@ -220,7 +220,7 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
         sf.gridy++;
         JButton signupButton = new JButton("Sign Up");
         Font signupButtonfnt = FontUtils.getFont("Poppins-Regular.ttf", 30f);
-        ButtonUtils.styleGreenButton(signupButton, signupButtonfnt);
+        LandingButtonUtils.styleGreenButton(signupButton, signupButtonfnt);
 
 
         // DB connection logic for the signup Panel
@@ -242,10 +242,11 @@ public class SignupPanel extends JLayeredPane{ // Extends on JLayered Pane for a
                 return;
             }
 
-            boolean success = UserDAO.userRegister(username, email, password);
-            if (success) {
+            int newUserId = UserDAO.userRegister(username, email, password);
+            if (newUserId != -1) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Sign Up successful! Welcome to PotsKo");
-                mainFrame.showHome();
+                mainFrame.setCurrentUserId(newUserId); // <-- set the current user
+                mainFrame.showHome(); // or showDashboard(), etc.
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Sign up failed. Try different email or username");
             }
